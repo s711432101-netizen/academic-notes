@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>學術文獻摘要卡庫 | Academic Literature Notes</title>
+  
+  <!-- Notion / Paper Style CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Marked.js (Markdown 解析器) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- Mermaid.js (變數架構圖即時繪製) -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+
+  <!-- 頂部頁首導覽 -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-brand">
+        <span class="header-icon">📑</span>
+        <h1 class="site-title">學術文獻摘要卡庫</h1>
+      </div>
+      <p class="site-subtitle">一卡提煉核心脈絡 · 快速掌握學術研究精髓</p>
+
+      <!-- 搜尋與篩選列 -->
+      <div class="controls-bar">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" placeholder="搜尋論文標題、作者、關鍵字或一句話總結...">
+        </div>
+
+        <div class="filter-group">
+          <select id="journal-filter" class="filter-select">
+            <option value="">所有期刊</option>
+          </select>
+          <select id="year-filter" class="filter-select">
+            <option value="">所有年份</option>
+          </select>
+          <button id="reset-filters" class="btn-reset">重設條件</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主內容區 -->
+  <main class="container">
+    <!-- 統計與標籤列 -->
+    <div class="stats-bar">
+      <div id="total-count">正在載入文獻清單...</div>
+      <div id="tag-cloud" class="tag-cloud"></div>
+    </div>
+
+    <!-- 卡片網格 -->
+    <div id="cards-grid" class="cards-grid">
+      <!-- 卡片由 js/app.js 動態渲染 -->
+    </div>
+  </main>
+
+  <!-- 單篇文獻詳細筆記 Modal 彈窗 -->
+  <div id="note-modal" class="modal-overlay">
+    <div class="modal-sheet">
+      <div class="modal-header">
+        <div class="modal-header-info">
+          <h2 id="modal-title" class="modal-header-title">文獻題目</h2>
+          <div id="modal-authors" class="modal-header-authors">作者資訊</div>
+        </div>
+        <div class="modal-actions">
+          <button id="modal-close-btn" class="btn-icon" title="關閉 (Esc)">✕</button>
+        </div>
+      </div>
+      <div id="modal-body" class="modal-body">
+        <!-- 內容由 js/app.js 動態解析 Markdown 填入 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 頁尾 -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>學術文獻摘要卡 · 採純前端免編譯架構 · 隨插即用於 GitHub Pages</p>
+    </div>
+  </footer>
+
+  <!-- 載入資料索引與核心邏輯 -->
+  <script src="js/manifest.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
